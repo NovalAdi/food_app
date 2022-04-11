@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:food_app/database/dbhelper.dart';
+import 'package:food_app/database/db_helper.dart';
 import 'package:food_app/model/response_detail.dart';
 import 'package:food_app/model/meal_item.dart';
 import 'package:http/http.dart' as http;

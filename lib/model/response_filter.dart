@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'package:food_app/model/meal_item.dart';
 
-ResponseFilter responseFilterFromJson(
-  String string,
-) =>
-    ResponseFilter.fromJson(jsonDecode(string));
+ResponseFilter responseFilterFromJson(String string) =>
+    ResponseFilter.fromJson(json.decode(string));
 
-String responseFilterToJson(ResponseFilter data) => jsonEncode(data);
+String responseFilterToJson(ResponseFilter data) => json.encode(data);
 
 class ResponseFilter {
   ResponseFilter({this.meals});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/database/dbhelper.dart';
+import 'package:food_app/database/db_helper.dart';
 import 'package:food_app/model/response_filter.dart';
 import 'package:food_app/ui/list_meals.dart';
 
@@ -54,14 +54,8 @@ class _FavoritePageState extends State<FavoritePage> {
         selectedItemColor: Colors.amber,
         currentIndex: currentIndex,
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fastfood),
-            label: 'Seafood',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.cake),
-            label: 'Dessert',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.fastfood), label: 'Seafood'),
+          BottomNavigationBarItem(icon: Icon(Icons.cake), label: 'Dessert'),
         ],
         onTap: (index) {
           setState(() {

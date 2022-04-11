@@ -28,7 +28,7 @@ class DBHelper {
   //6
   void _onCreate(Database db, int version) async {
     var dbsql =
-        "CREATE TABLE favorite(id INTEJER PRIMARY KEY, idMeal TEXT, strMeal TEXT, strInstructions TEXT, strMealThumb TEXT, strCategory TEXT)";
+        "CREATE TABLE favorite(id INTEGER PRIMARY KEY, idMeal TEXT, strMeal TEXT, strInstructions TEXT, strMealThumb TEXT, strCategory TEXT)";
     await db.execute(dbsql);
     print('DB Created');
   }
@@ -71,18 +71,18 @@ class DBHelper {
 
   Future<List<Meal>> gets(String category) async {
     var dbClient = await db;
-    var sql = "SELECT * FROM favorite WHERE strCategory=? ORDER BY idMeal DESC";
-    List<Map> list = await dbClient!.rawQuery(sql, [category]);
+    var sql = "SELECT * FROM favorite WHERE  strCategory=? ORDER BY idMeal DESC";
+    List<Map> list = await dbClient!.rawQuery(sql,[category]);
     List<Meal> favorites = [];
-    for (int i = 0; 1 < list.length; i++) {
+    for (int w = 0; w < list.length; w++) {
       Meal favorite = Meal(
-        idMeal: list[i]["idMeal"],
-        strMeal: list[i]["strMeal"],
-        strInstructions: list[i]["strInstructions"],
-        strMealThumb: list[i]["strMealThumb"],
-        strCategory: list[i]["strCategory"],
+        idMeal: list[w]["idMeal"],
+        strMeal: list[w]["strMeal"],
+        strInstructions: list[w]["strInstructions"],
+        strMealThumb: list[w]["strMealThumb"],
+        strCategory: list[w]["strCategory"],
       );
-      favorite.setFavariteId(list[i]["idMeal"]);
+      favorite.setFavariteId(list[w]["idMeal"]);
       favorites.add(favorite);
     }
     return favorites;

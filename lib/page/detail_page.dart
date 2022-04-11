@@ -15,7 +15,7 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  late ResponseDetail responseDetail;
+  ResponseDetail? responseDetail;
   bool isLoading = true;
   bool isFavorite = false;
   var db = DBHelper();
@@ -50,11 +50,11 @@ class _DetailPageState extends State<DetailPage> {
   setFavorite() async {
     var db = DBHelper();
     Meal favorite = Meal(
-      idMeal: responseDetail.meals[0]['idMeal'],
-      strMeal: responseDetail.meals[0]['strMeal'],
-      strMealThumb: responseDetail.meals[0]['strMealThumb'],
-      strInstructions: responseDetail.meals[0]['strInstructions'],
-      strCategory: responseDetail.meals[0]['strCategory'],
+      idMeal: responseDetail!.meals[0]['idMeal'],
+      strMeal: responseDetail!.meals[0]['strMeal'],
+      strMealThumb: responseDetail!.meals[0]['strMealThumb'],
+      strInstructions: responseDetail!.meals[0]['strInstructions'],
+      strCategory: responseDetail!.meals[0]['strCategory'],
     );
 
     if (!isFavorite) {
@@ -109,9 +109,9 @@ class _DetailPageState extends State<DetailPage> {
                       child: Hero(
                         child: Material(
                           child: Image.network(
-                              responseDetail.meals[0]['strMealThumb']),
+                              responseDetail!.meals[0]['strMealThumb']),
                         ),
-                        tag: '${responseDetail.meals[0]['idMeal']}',
+                        tag: '${responseDetail!.meals[0]['idMeal']}',
                       ),
                     ),
                     onTap: () {
@@ -121,7 +121,7 @@ class _DetailPageState extends State<DetailPage> {
                   Padding(
                     padding: EdgeInsets.all(8),
                     child: Center(
-                      child: Text('${responseDetail.meals[0]['strMeal']}'),
+                      child: Text('${responseDetail!.meals[0]['strMeal']}'),
                     ),
                   ),
                   Padding(
@@ -134,7 +134,7 @@ class _DetailPageState extends State<DetailPage> {
                     padding: EdgeInsets.all(8),
                     child: Center(
                       child:
-                          Text('${responseDetail.meals[0]['strInstructions']}'),
+                          Text('${responseDetail!.meals[0]['strInstructions']}'),
                     ),
                   ),
                 ],

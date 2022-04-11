@@ -42,7 +42,7 @@ class DBHelper {
   //8
   Future<int> insert(Meal meals) async {
     var dbClient = await db;
-    int res = await dbClient!.insert("favorite", meals.toJson()).then((value) {
+    int res = await dbClient!.insert("favorite", meals.toJson()).then((v) {
       return 1;
     });
     if (res == 1) {
@@ -69,7 +69,7 @@ class DBHelper {
     }
   }
 
-  Future<List<Meal>?> gets(String category) async {
+  Future<List<Meal>> gets(String category) async {
     var dbClient = await db;
     var sql = "SELECT * FROM favorite WHERE strCategory=? ORDER BY idMeal DESC";
     List<Map> list = await dbClient!.rawQuery(sql, [category]);

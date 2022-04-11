@@ -15,7 +15,7 @@ class FavoritePage extends StatefulWidget {
 class _FavoritePageState extends State<FavoritePage> {
   int currentIndex = 0;
   String category = "Seafood";
-  late ResponseFilter responseFilter;
+  ResponseFilter? responseFilter;
   bool isLoading = true;
   var db = DBHelper();
 

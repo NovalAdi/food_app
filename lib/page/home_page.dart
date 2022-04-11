@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       NetClient client = NetClient();
       var data = await client.fetchDataMeals(currentIndex);
       setState(() {
-        responseFilter = data;
+        responseFilter = data!;
         isLoading = false;
       });
     } catch (e) {
